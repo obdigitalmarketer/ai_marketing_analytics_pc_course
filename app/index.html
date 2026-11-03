@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;">
+<title>AI Marketing Analytics Pro</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="layout">
+
+  <!-- ===== Sidebar ===== -->
+  <aside id="sidebar">
+    <div class="brand">
+      <div class="logo">◆</div>
+      <div><b>AI Marketing<br><span class="accent">Analytics Pro</span></b>
+      <small>Intermediate Track · Offline</small></div>
+    </div>
+
+    <div class="progressbox">
+      <div class="pbar"><div id="globalbar"></div></div>
+      <span id="globalpct">0%</span> complete
+    </div>
+
+    <nav class="mainnav">
+      <button class="navbtn active" data-view="dashboard" onclick="go('dashboard')">📊 Dashboard</button>
+      <button class="navbtn" data-view="course" onclick="go('course','m1')">📚 Course</button>
+      <button class="navbtn" data-view="lab" onclick="go('lab')">🧪 Lab Console</button>
+      <button class="navbtn" data-view="glossary" onclick="go('glossary')">📖 Glossary</button>
+      <button class="navbtn" data-view="certificate" onclick="go('certificate')">🎓 Certificate</button>
+    </nav>
+
+    <div class="sideheading">MODULES</div>
+    <nav id="modlist"></nav>
+
+    <div class="foot">v1.0.0 · fully offline<br>Your progress saves automatically.</div>
+  </aside>
+
+  <!-- ===== Main ===== -->
+  <main id="main">
+
+    <!-- Dashboard -->
+    <section id="view-dashboard" class="view">
+      <h1 id="d-name">Welcome</h1>
+      <div class="statgrid">
+        <div class="stat"><span id="d-pct">0%</span><label>Overall progress</label></div>
+        <div class="stat"><span id="d-grade">0%</span><label>Avg quiz grade</label></div>
+        <div class="stat"><span id="d-labs">0/7</span><label>Labs passed</label></div>
+        <div class="stat"><span id="d-hours">32h</span><label>Program length</label></div>
+      </div>
+      <div class="twocol">
+        <div class="panel"><h3>Engagement trends (demo data)</h3><div id="chart-engagement"></div></div>
+        <div class="panel"><h3>Weekly spend $k (MMM sample)</h3><div id="chart-spend"></div></div>
+      </div>
+      <h2 style="margin-top:26px">Your modules</h2>
+      <div id="d-modules"></div>
+    </section>
+
+    <!-- Course -->
+    <section id="view-course" class="view hidden">
+      <h1 id="c-title">Module</h1>
+      <p class="meta" id="c-meta"></p>
+      <div id="c-body"></div>
+    </section>
+
+    <!-- Lab console -->
+    <section id="view-lab" class="view hidden">
+      <h1 id="lab-title">Lab</h1>
+      <div class="panel"><h3>Brief</h3><p id="lab-brief"></p>
+        <ul class="tasklist" id="lab-output"></ul></div>
+      <div class="labgrid">
+        <div class="editorwrap">
+          <div class="toolbar">
+            <button class="btn primary" onclick="runLab()">▶ Run &amp; Grade</button>
+            <button class="btn" onclick="showSolution()">💡 Load solution (after trying!)</button>
+            <select id="labsel" onchange="renderLab(this.value)">
+              <option value="lab-m1">Lab 1 · Data Quality</option>
+              <option value="lab-m2">Lab 2 · RFM as-of</option>
+              <option value="lab-m3">Lab 3 · Lift &amp; Net Value</option>
+              <option value="lab-m4">Lab 4 · Adstock+Saturation</option>
+              <option value="lab-m5">Lab 5 · CLV Roll-up</option>
+              <option value="lab-m6">Lab 6 · Golden-Set F1</option>
+              <option value="lab-m7">Lab 7 · Power Analysis</option>
+            </select>
+          </div>
+          <textarea id="lab-code" spellcheck="false"></textarea>
+          <div id="lab-status" class="status">Write your logic and press Run &amp; Grade.</div>
+        </div>
+        <div class="gradewrap">
+          <h3>Grading</h3>
+          <table id="lab-table"><tr><td colspan="4">Run your code to see grading.</td></tr></table>
+          <p class="hint">Answers are graded against deterministic bundled datasets with numeric tolerances — same result every run.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Glossary -->
+    <section id="view-glossary" class="view hidden">
+      <h1>Glossary</h1>
+      <div id="glossary-list" class="glist"></div>
+    </section>
+
+    <!-- Certificate -->
+    <section id="view-certificate" class="view hidden">
+      <h1>Certificate</h1>
+      <div class="panel">
+        <label>Your name (for the certificate)<input id="in-name" placeholder="e.g. Jordan Rivera"></label>
+        <label>Email (optional, printed on cert)<input id="in-email" placeholder="you@company.com"></label>
+        <p id="cert-status"></p>
+      </div>
+      <div id="cert-card" class="cert" style="display:none"></div>
+      <p class="hint">The certificate unlocks at ≥80% overall progress and ≥75% average quiz grade. Print or save as PDF — it's yours forever, no paywall.</p>
+    </section>
+
+  </main>
+</div>
+
+<!-- Local scripts only: app works with zero internet -->
+<script src="../data/datasets.js"></script>
+<script src="js/courseData.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/labEngine.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

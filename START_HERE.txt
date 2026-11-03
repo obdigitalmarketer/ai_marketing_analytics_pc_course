@@ -1,0 +1,62 @@
+========================================================================
+ AI MARKETING ANALYTICS PRO  —  START HERE (Windows)
+========================================================================
+
+You downloaded ONE zip file. It contains the entire course app.
+Everything below runs 100% OFFLINE once set up.
+
+------------------------------------------------------------------------
+PATH 1 — FASTEST: Get your .exe in ~2 minutes (recommended)
+------------------------------------------------------------------------
+1. Install Node.js (free, one time): https://nodejs.org  -> "LTS" version
+2. Unzip this file to a folder, e.g. C:\AIMarketingPro
+3. Open Command Prompt (Win+R, type cmd, Enter) and run:
+
+      cd C:\AIMarketingPro
+      npm install
+      npm run dist:win
+
+4. Grab your program from the "dist" folder that appears:
+
+   • AI Marketing Analytics Pro 1.0.0.exe        <- PORTABLE single-file
+                                                    EXE. Copy it anywhere
+                                                    (Desktop, USB stick).
+                                                    Double-click = course.
+   • AI Marketing Analytics Pro Setup 1.0.0.exe  <- Classic installer with
+                                                    desktop shortcut.
+
+   Either EXE is fully self-contained: all 8 modules, quizzes, 7 auto-
+   graded labs, datasets, dashboard, and certificate work with zero
+   internet. This zip was verified with `node scripts/verify_labs.js`
+   (all 7 lab graders PASS).
+
+------------------------------------------------------------------------
+PATH 2 — NO INSTALL AT ALL: Run straight from the zip
+------------------------------------------------------------------------
+After unzipping, just double-click:
+
+      app\index.html
+
+It opens in your browser (Edge/Chrome). The app saves your progress
+locally per browser. Works completely offline. (Path 1 gives you the
+native windowed "PC program" experience; Path 2 is instant.)
+
+------------------------------------------------------------------------
+PATH 3 — Tiny Python .exe (if you already use Python)
+------------------------------------------------------------------------
+      pip install pywebview pyinstaller
+      pyinstaller --onefile --windowed --name AIMarketingAnalyticsPro scripts\launcher_win.py
+      -> dist\AIMarketingAnalyticsPro.exe
+
+------------------------------------------------------------------------
+TROUBLESHOOTING
+------------------------------------------------------------------------
+• SmartScreen warning on first run of the unsigned EXE: click
+  "More info" -> "Run anyway". Normal for indie software.
+• Full build details: docs\BUILD_WINDOWS.md
+• Reset course progress: in the app press F12 console ->
+  localStorage.clear(), then reload.
+
+Your final deliverable (the thing you share/install) is:
+   dist\AI Marketing Analytics Pro 1.0.0.exe   (portable PC program)
+========================================================================
