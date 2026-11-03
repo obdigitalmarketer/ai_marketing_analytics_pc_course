@@ -1,0 +1,11 @@
+# Dependencies & build artifacts — never commit these
+node_modules/
+dist/
+out/
+*.log
+.DS_Store
+Thumbs.db
+
+# Keep the course bundle tracked so GitHub Releases can serve it
+!AIMarketingAnalyticsPro-Windows.zip
+*.zip.tmp

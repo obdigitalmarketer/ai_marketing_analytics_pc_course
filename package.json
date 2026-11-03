@@ -1,0 +1,39 @@
+{
+  "name": "ai-marketing-analytics-pro",
+  "productName": "AI Marketing Analytics Pro",
+  "version": "1.0.0",
+  "description": "The offline, hands-on intermediate course for AI Marketing Analytics. Video-free, lab-first, zero subscriptions.",
+  "author": "Analytics Forge Labs",
+  "license": "MIT",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis portable",
+    "dist:all": "electron-builder --linux AppImage"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.analyticsforge.aimarketpro",
+    "productName": "AI Marketing Analytics Pro",
+    "files": [
+      "main.js",
+      "app/**/*",
+      "data/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "AI Marketing Analytics Pro"
+    }
+  }
+}
